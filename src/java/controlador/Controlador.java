@@ -48,6 +48,7 @@ public class Controlador extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("Controlador");
         String menu = request.getParameter("menu");
         String accion = request.getParameter("accion");
         productos = pdao.listar();
@@ -66,13 +67,17 @@ public class Controlador extends HttpServlet {
                     String tel = request.getParameter("txtTel");
                     String est = request.getParameter("txtEstado");
                     String user = request.getParameter("txtUser");
+                    String password = request.getParameter("txtPassword");
                     em.setRut(rut);
-                    em.setNom(nom);
-                    em.setTel(tel);
+                    em.setNombres(nom);
+                    em.setTelefono(tel);
                     em.setEstado(est);
                     em.setUser(user);
+                    em.setPassword(password);
                     edao.agregar(em);
+                    request.setAttribute("msgAgregar","Empleado Agregado");
                     request.getRequestDispatcher(ACCION_EMPLEADO_MENU_LISTAR).forward(request, response);
+                    
                     break;
                 case "Editar":
                     ide = Integer.parseInt(request.getParameter("id"));
@@ -87,8 +92,8 @@ public class Controlador extends HttpServlet {
                     String est1 = request.getParameter("txtEstado");
                     String user1 = request.getParameter("txtUser");
                     em.setRut(rut1);
-                    em.setNom(nom1);
-                    em.setTel(tel1);
+                    em.setNombres(nom1);
+                    em.setTelefono(tel1);
                     em.setEstado(est1);
                     em.setUser(user1);
                     em.setId(ide);

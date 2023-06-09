@@ -78,7 +78,7 @@ public class EmpleadoIT {
         System.out.println("setNom");
         String nom = "";
         Empleado instance = new Empleado();
-        instance.setNom(nom);
+        instance.setNombres(nom);
     }
 
     /**
@@ -89,7 +89,7 @@ public class EmpleadoIT {
         System.out.println("setTel");
         String tel = "";
         Empleado instance = new Empleado();
-        instance.setTel(tel);
+        instance.setTelefono(tel);
     }
 
     /**

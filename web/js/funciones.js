@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("tr #btnDelete").click(function () {
+    $("#myFrame").contents().find(".btn-danger").click(function () {
         var idp = $(this).parent().find("#idp").val();
         swal({
             title: "Está seguro que desea eliminar?",

@@ -25,7 +25,7 @@ public class Conexion {
             InputStream in = getClass().getResourceAsStream("/config/db.properties");
             props.load(in);
             String user = props.getProperty("db.user");
-            String pass = props.getProperty("db.p   ass");
+            String pass = props.getProperty("db.pass");
             String url = props.getProperty("db.url");
             Class.forName("com.mysql.jdbc.Driver"); //NOSONAR
             con = (Connection) DriverManager.getConnection(url, user, pass);

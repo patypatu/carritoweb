@@ -3,21 +3,31 @@ package modelo;
 public class Empleado {
     int id;
     String rut;
-    String nom;
-    String tel;
+    String nombres;
+    String telefono;
     String estado;
     String user;
+    String password;
 
     public Empleado() {
     }
 
-    public Empleado(int id, String rut, String nom, String tel, String estado, String user) {
+    public Empleado(int id, String rut, String nom, String tel, String estado, String user, String pass) {
         this.id = id;
         this.rut = rut;
-        this.nom = nom;
-        this.tel = tel;
+        this.nombres = nom;
+        this.telefono = tel;
         this.estado = estado;
         this.user = user;
+        this.password = pass;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getId() {
@@ -36,20 +46,20 @@ public class Empleado {
         this.rut = rut;
     }
 
-    public String getNom() {
-        return nom;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setNombres(String nom) {
+        this.nombres = nom;
     }
 
-    public String getTel() {
-        return tel;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setTel(String tel) {
-        this.tel = tel;
+    public void setTelefono(String tel) {
+        this.telefono = tel;
     }
 
     public String getEstado() {

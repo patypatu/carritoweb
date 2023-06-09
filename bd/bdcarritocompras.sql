@@ -82,6 +82,37 @@ CREATE TABLE `pago` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `empleado` 
+--
+
+CREATE TABLE `empleado` (
+  `idEmpleado` int(11) NOT NULL,
+  `Rut` varchar(11) NOT NULL,
+  `Nombres` varchar(25) NOT NULL,
+  `Telefono` varchar(11) DEFAULT NULL,
+  `Estado` varchar(10) DEFAULT NULL,
+  `User` varchar(25) DEFAULT NULL,
+  `Password` varchar(25) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Indices de la tabla `empleado`
+--
+ALTER TABLE `empleado`
+  ADD PRIMARY KEY (`idEmpleado`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `empleado`
+--
+ALTER TABLE `empleado`
+  MODIFY `idEmpleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+
+--
 -- Estructura de tabla para la tabla `producto`
 --
 

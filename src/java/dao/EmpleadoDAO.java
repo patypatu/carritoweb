@@ -17,20 +17,20 @@ public class EmpleadoDAO {
     ResultSet rs;
     int r;
 
-    public Empleado validar(String user, String rut) {
+    public Empleado validar(String user, String password) {
         Empleado em = new Empleado();
-        String sql = "select * from empleado where User=? and Rut=?";
+        String sql = "select * from empleado where User=? and Password=?";
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
             ps.setString(1, user);
-            ps.setString(2, rut);
+            ps.setString(2, password);
             rs = ps.executeQuery();
             while (rs.next()) {
-                em.setId(rs.getInt("IdEmpleado"));
+                em.setId(rs.getInt("idEmpleado"));
                 em.setUser(rs.getString("User"));
                 em.setRut(rs.getString("Rut"));
-                em.setNom(rs.getString("Nombres"));
+                em.setNombres(rs.getString("Nombres"));
             }
         } catch (Exception e) {
             LOGGER.severe("Error validar empleado"+e);
@@ -51,8 +51,8 @@ public class EmpleadoDAO {
                 Empleado em=new Empleado();
                 em.setId(rs.getInt(1));
                 em.setRut(rs.getString(2));
-                em.setNom(rs.getString(3));
-                em.setTel(rs.getString(4));
+                em.setNombres(rs.getString(3));
+                em.setTelefono(rs.getString(4));
                 em.setEstado(rs.getString(5));
                 em.setUser(rs.getString(6));
                 lista.add(em);
@@ -63,15 +63,16 @@ public class EmpleadoDAO {
         return lista;
     }
     public int agregar(Empleado em){ 
-        String sql="insert into empleado(Rut, Nombres, Telefono,Estado,User)values(?,?,?,?,?)";
+        String sql="insert into empleado(Rut, Nombres, Telefono,Estado,User,Password)values(?,?,?,?,?,?)";
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
             ps.setString(1, em.getRut());
-            ps.setString(2, em.getNom());
-            ps.setString(3, em.getTel());
+            ps.setString(2, em.getNombres());
+            ps.setString(3, em.getTelefono());
             ps.setString(4, em.getEstado());
             ps.setString(5, em.getUser());
+            ps.setString(6, em.getPassword());
             ps.executeUpdate();
         } catch (Exception e) {
             LOGGER.severe("Error al agregar empleado"+e);
@@ -89,8 +90,8 @@ public class EmpleadoDAO {
             rs=ps.executeQuery();
             while (rs.next()) {
                 emp.setRut(rs.getString(2));
-                emp.setNom(rs.getString(3));
-                emp.setTel(rs.getString(4));
+                emp.setNombres(rs.getString(3));
+                emp.setTelefono(rs.getString(4));
                 emp.setEstado(rs.getString(5));
                 emp.setUser(rs.getString(6));
             }
@@ -105,8 +106,8 @@ public class EmpleadoDAO {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
             ps.setString(1, em.getRut());
-            ps.setString(2, em.getNom());
-            ps.setString(3, em.getTel());
+            ps.setString(2, em.getNombres());
+            ps.setString(3, em.getTelefono());
             ps.setString(4, em.getEstado());
             ps.setString(5, em.getUser());
             ps.setInt(6, em.getId());

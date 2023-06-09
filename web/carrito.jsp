@@ -52,13 +52,13 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Usuario</label>
-                                            <input type="text" name="txtuser" class="form-control">
+                                            <input type="text" name="txtuser" class="form-control"/>
                                         </div>
                                         <div class="form-group">
                                             <label>Password</label>
-                                            <input type="password" name="txtpass" class="form-control">
+                                            <input type="password" name="txtpass" class="form-control"/>
                                         </div>
-                                        <input type="submit" name="accion" value="Ingresar" class="btn btn-primary btn-block"
+                                        <input type="submit" name="accion" value="Ingresar" class="btn btn-primary"/>
                                     </form>
                                 </div>
                             </div>
