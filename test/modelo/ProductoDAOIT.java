@@ -4,6 +4,7 @@
  */
 package modelo;
 
+import dao.ProductoDAO;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 import org.junit.After;

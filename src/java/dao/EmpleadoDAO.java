@@ -1,4 +1,4 @@
-package modelo;
+package dao;
 
 import config.Conexion;
 import java.sql.Connection;
@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
+import modelo.Empleado;
 
 public class EmpleadoDAO {
     private static final Logger LOGGER = Logger.getLogger(EmpleadoDAO.class.getName());

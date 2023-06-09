@@ -14,9 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Carrito;
 import modelo.Empleado;
-import modelo.EmpleadoDAO;
+import dao.EmpleadoDAO;
 import modelo.Producto;
-import modelo.ProductoDAO;
+import dao.ProductoDAO;
 
 /**
  *

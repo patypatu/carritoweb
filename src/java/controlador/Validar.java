@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Empleado;
-import modelo.EmpleadoDAO;
+import dao.EmpleadoDAO;
 
 public class Validar extends HttpServlet {
 

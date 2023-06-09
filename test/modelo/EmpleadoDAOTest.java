@@ -4,6 +4,7 @@
  */
 package modelo;
 
+import dao.EmpleadoDAO;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
