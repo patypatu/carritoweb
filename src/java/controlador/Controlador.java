@@ -192,38 +192,80 @@ public class Controlador extends HttpServlet {
                 request.getRequestDispatcher("carrito.jsp").forward(request, response);
 
                 break;
-            case "AgregarCarrito":
+            //case "AgregarCarrito":
+                //idp = Integer.parseInt(request.getParameter("id"));
+                //p = pdao.listarId(idp);
+                //item = item + 1;
+                //car = new Carrito();
+                //car.setItem(item);
+                //car.setIdProducto(p.getId());
+                //car.setNombres(p.getNombres());
+                //car.setDescripcion(p.getDescripcion());
+                //car.setPrecioCompra(p.getPrecio());
+                //car.setCantidad(cantidad);
+                //car.setSubTotal(cantidad * p.getPrecio());
+                //listaCarrito.add(car);
+                //request.setAttribute("contador", listaCarrito.size());
+                //request.getRequestDispatcher("Controlador?accion=home").forward(request, response);
+
+                
+                case "AgregarCarrito":
                 idp = Integer.parseInt(request.getParameter("id"));
                 p = pdao.listarId(idp);
                 item = item + 1;
-                car = new Carrito();
-                car.setItem(item);
-                car.setIdProducto(p.getId());
-                car.setNombres(p.getNombres());
-                car.setDescripcion(p.getDescripcion());
-                car.setPrecioCompra(p.getPrecio());
-                car.setCantidad(cantidad);
-                car.setSubTotal(cantidad * p.getPrecio());
-                listaCarrito.add(car);
+                
+                boolean existeEnCarrito = false;
+                for (Carrito carrito : listaCarrito) {
+                    if (carrito.getIdProducto() == p.getId()) {
+                        if (cantidad <= p.getStock()) {
+                            carrito.setCantidad(carrito.getCantidad() + cantidad);
+                            carrito.setSubTotal(carrito.getSubTotal() + (cantidad * p.getPrecio()));
+                            p.setStock(p.getStock() - cantidad);
+                        } else {
+                        }
+
+                        existeEnCarrito = true;
+                        break;
+                    }
+                }
+                if (!existeEnCarrito) {
+                    if (cantidad <= p.getStock()) {
+                        car = new Carrito();
+                        car.setItem(item);
+                        car.setIdProducto(p.getId());
+                        car.setNombres(p.getNombres());
+                        car.setDescripcion(p.getDescripcion());
+                        car.setPrecioCompra(p.getPrecio());
+                        car.setCantidad(cantidad);
+                        car.setSubTotal(cantidad * p.getPrecio());
+                        listaCarrito.add(car);
+
+                        p.setStock(p.getStock() - cantidad);
+                    } else {
+                    }
+                }
+
                 request.setAttribute("contador", listaCarrito.size());
                 request.getRequestDispatcher("Controlador?accion=home").forward(request, response);
 
-                break;
-            case CASE_DELETE:
-                int idproducto = Integer.parseInt(request.getParameter("idp"));
-                for (int i = 0; i < listaCarrito.size(); i++) {
-                    if(listaCarrito.get(i).getIdProducto() == idproducto){
-                        listaCarrito.remove(i);
+
+
+                    break;
+                case CASE_DELETE:
+                    int idproducto = Integer.parseInt(request.getParameter("idp"));
+                    for (int i = 0; i < listaCarrito.size(); i++) {
+                        if(listaCarrito.get(i).getIdProducto() == idproducto){
+                            listaCarrito.remove(i);
+                        }
                     }
-                }
-                break;
-            case "Carrito":
-                totalPagar = 0;
-                request.setAttribute("carrito", listaCarrito);
-                totalCarrito();
-                request.setAttribute("totalPagar", totalPagar);
-                request.getRequestDispatcher("carrito.jsp").forward(request, response);
-                break;
+                    break;
+                case "Carrito":
+                    totalPagar = 0;
+                    request.setAttribute("carrito", listaCarrito);
+                    totalCarrito();
+                    request.setAttribute("totalPagar", totalPagar);
+                    request.getRequestDispatcher("carrito.jsp").forward(request, response);
+                    break;
                 
             case "GenerarCompra":
               
