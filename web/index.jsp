@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 29-09-2019, 9:59:33
-    Author     : docencia
+    Author     : docencia.
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
