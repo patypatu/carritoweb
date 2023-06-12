@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 29-09-2019, 9:59:33
-    Author     : docencia.
+    Author     : docencia
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -78,16 +78,21 @@
 
                     <div class="col-sm-4">
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header text-center">
                                 <label>${p.getNombres()}</label>
                             </div>
-                            <div class="card-body">
-                                <i>${p.getPrecio()}</i>
+                            <div class="card-body text-center">
+    
                                 <img src="ControladorIMG?id=${p.getId()}" width="200" height="180">
-                            </div>
+                                <br>
+                                <p>$ <i>${p.getPrecio()}</i> </p>
+                            <div>
                             <div class="card-footer text-center">
                                 <label>${p.getDescripcion()}</label>
-                                <div>
+                                </div>
+                            <div class="card-footer text-center">
+                                <p>Stock: <label>${p.getStock()}</label> </p>
+                                </div>
                                     <a href="Controlador?accion=AgregarCarrito&id=${p.getId()}" class="btn btn-outline-info">Agregar a Carrito</a>
                                     <a href="Controlador?accion=Comprar&id=${p.getId()}" class="btn btn-outline-danger">Comprar</a>
                                 </div>
