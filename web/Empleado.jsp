@@ -87,6 +87,11 @@
                         ${msgAgregar}
                     </div>
                 </c:if>
+                <c:if test="${msgActualizar != null}">
+                    <div class="alert alert-success" role="alert">
+                        ${msgActualizar}
+                    </div>
+                </c:if>
             </div>
 
         </div>      

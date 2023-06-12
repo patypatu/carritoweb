@@ -98,6 +98,7 @@ public class Controlador extends HttpServlet {
                     em.setUser(user1);
                     em.setId(ide);
                     edao.actualizar(em);
+                    request.setAttribute("msgActualizar","Empleado Actualizado");
                     request.getRequestDispatcher(ACCION_EMPLEADO_MENU_LISTAR).forward(request, response);
                     break;
                 case CASE_DELETE:
@@ -158,6 +159,9 @@ public class Controlador extends HttpServlet {
                     p.setStock(sto);
                     pdao.actualizar(p);
                     request.getRequestDispatcher(ACCION_PRODUCTO_MENU_LISTAR).forward(request, response);
+                    break;
+                case "Buscar":
+                    System.out.println("metodo buscar");
                     break;
                 case CASE_DELETE:
                     ide = Integer.parseInt(request.getParameter("id"));
