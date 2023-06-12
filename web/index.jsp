@@ -34,8 +34,10 @@
                         <a class="nav-link" href="Controlador?accion=Carrito"><i class="fas fa-cart-plus"><label style="color:darkorange">${contador} </i> Carrito de Compras</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0" action="Controlador?accion=Producto&menu=Buscar">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+                <form class="form-inline my-2 my-lg-0" action="Controlador" method="GET">
+                    <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <input type="hidden" name="accion" value="Producto" >
+                    <input type="hidden" name="menu" value="Buscar" >
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
                 <ul class="navbar">

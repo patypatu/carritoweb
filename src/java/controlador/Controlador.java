@@ -51,7 +51,7 @@ public class Controlador extends HttpServlet {
         System.out.println("Controlador");
         String menu = request.getParameter("menu");
         String accion = request.getParameter("accion");
-        productos = pdao.listar();
+
         
         switch (accion) {
             case "Empleado":
@@ -162,6 +162,12 @@ public class Controlador extends HttpServlet {
                     break;
                 case "Buscar":
                     System.out.println("metodo buscar");
+                    int search = Integer.valueOf(request.getParameter("search"));
+                    Producto producto = pdao.buscar(search);
+                    productos.clear();
+                    productos.add(producto);
+                    request.setAttribute("productos", productos);
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
                     break;
                 case CASE_DELETE:
                     ide = Integer.parseInt(request.getParameter("id"));
@@ -248,6 +254,7 @@ public class Controlador extends HttpServlet {
                 break;
 
             default:
+                productos = pdao.listar();
                 request.setAttribute("productos", productos);
                 request.getRequestDispatcher("index.jsp").forward(request, response);
         }
